@@ -2,6 +2,10 @@
 
 This project is a single-page web application designed as a user-friendly, chat-style interface for initiating a loan application process.
 
+## Live Demo
+
+You can test the application live at: **https://finance-portal-alpha.vercel.app/**
+
 ## Project Structure
 
 The entire frontend application is contained within a single `index.html` file. This file includes:
