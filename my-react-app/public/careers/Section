@@ -1,0 +1,27 @@
+import React from 'react';
+import RactDOM from 'react-dom';
+
+export class Section extends React.Component{
+  render() {
+    <section className="bg-white">
+      <div className="container pb-5">
+        <div className="row bg-gray">
+          <div className="col-12 col-md-6 careers-it">
+            <p className="aff-steps-arrow remove-desktop">
+              <i className="arrow-down"></i>
+            </p>
+          </div>
+          <div className="col-12 col-md-6 py-4 p-lg-5 hr-left">
+            <h3>{data.title}</h3>
+            <hr />
+            <p>{data.description1}</p>
+            <p>{data.description2}</p>
+            <p>
+              <a href={`mailto:${this.props.email}`}>{data.ctaText}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+}
