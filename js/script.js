@@ -17,6 +17,20 @@
         observer.observe(el);
     });
 
+    // Cleanup function for event listeners
+    window.addEventListener('beforeunload', () => {
+        if (observer) {
+            observer.disconnect();
+        }
+        // Clean up stored event listeners
+        if (window.eventListeners) {
+            window.eventListeners.forEach(listener => {
+                listener.element.removeEventListener(listener.event, listener.handler);
+            });
+            window.eventListeners = [];
+        }
+    });
+
     // Chat form handling
     const form = document.getElementById('loan-form');
     if (form) {
@@ -29,7 +43,10 @@
         }
 
         function showStep(stepNumber) {
-            if (isAnimating) return;
+            if (isAnimating) {
+                console.log("Race condition prevented: Animation already in progress");
+                return;
+            }
             isAnimating = true;
 
             const currentStepElement = form.querySelector(`[data-step="${currentStep}"]`);
@@ -176,6 +193,33 @@
                     return false;
                 }
                 
+                // Sjekk for gyldige dag-månedkombinasjoner
+                const daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+                if (day > daysInMonth[month - 1]) {
+                    return false;
+                }
+                
+                // Spesiell sjekk for februar og skuddår
+                if (month === 2 && day === 29) {
+                    // Avgjør hvilket århundre basert på individnummer
+                    let fullYear;
+                    if (individualNumber >= 0 && individualNumber <= 499) {
+                        fullYear = 1900 + year;
+                    } else if (individualNumber >= 500 && individualNumber <= 749 && year >= 54) {
+                        fullYear = 1800 + year;
+                    } else if (individualNumber >= 500 && individualNumber <= 999 && year <= 39) {
+                        fullYear = 2000 + year;
+                    } else {
+                        fullYear = 1900 + year;
+                    }
+                    
+                    // Sjekk skuddår
+                    const isLeapYear = (fullYear % 4 === 0 && fullYear % 100 !== 0) || (fullYear % 400 === 0);
+                    if (!isLeapYear) {
+                        return false;
+                    }
+                }
+                
                 // Sjekk at individnummeret er gyldig (000-999)
                 if (individualNumber < 0 || individualNumber > 999) {
                     return false;
@@ -188,6 +232,18 @@
                 return value >= 10000 && value <= 800000;
             }
             return input.value.length > 0;
+        }
+
+        // Sanitization function to prevent XSS
+        function sanitizeInput(value) {
+            // Prevent XSS by escaping HTML entities
+            return value
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#x27;')
+                .replace(/\//g, '&#x2F;');
         }
 
         // Legg til formatteringsfunksjon for fødselsnummer
@@ -357,6 +413,15 @@
         form.addEventListener('click', (e) => {
             if (e.target.classList.contains('chat-next-btn') && e.target.type !== 'submit') {
                 e.preventDefault();
+                
+                // Prevent race conditions by disabling button temporarily
+                if (e.target.disabled || isAnimating) {
+                    return;
+                }
+                e.target.disabled = true;
+                setTimeout(() => {
+                    e.target.disabled = false;
+                }, 1000);
                 const currentStepElement = form.querySelector(`[data-step="${currentStep}"]`);
                 const input = currentStepElement.querySelector('.chat-input');
                 const inputContainer = currentStepElement.querySelector('.chat-input-container');
@@ -426,7 +491,7 @@
                     
                     const response = document.createElement('div');
                     response.className = 'chat-response';
-                    response.textContent = input.value;
+                    response.textContent = sanitizeInput(input.value);
                     
                     responseWrapper.appendChild(icon);
                     responseWrapper.appendChild(response);
@@ -603,7 +668,18 @@
                     }, 300);
                 }, 3000);
             } catch (error) {
-                alert("Det oppstod en feil ved opprettelse av søknaden. Vennligst prøv igjen." + error);
+                console.error("API Error:", error);
+                let errorMessage = "Det oppstod en teknisk feil. Vennligst prøv igjen om litt.";
+                
+                if (error.message.includes('network') || error.message.includes('fetch')) {
+                    errorMessage = "Nettverksfeil. Sjekk internetttilkoblingen din og prøv igjen.";
+                } else if (error.message.includes('validation') || error.message.includes('invalid')) {
+                    errorMessage = "Noen av opplysningene er ikke gyldige. Vennligst kontroller informasjonen og prøv igjen.";
+                } else if (error.message.includes('timeout')) {
+                    errorMessage = "Forespørselen tok for lang tid. Vennligst prøv igjen.";
+                }
+                
+                alert(errorMessage);
                 submitButton.disabled = false;
                 submitButton.textContent = 'Neste';
             }
@@ -899,10 +975,21 @@
             });
 
             // Skjul listen hvis bruker klikker utenfor
-            document.addEventListener('click', (e) => {
+            const handleDocumentClick = (e) => {
                 if (countrySearchContainer && !countrySearchContainer.contains(e.target)) {
                     countryList.style.display = 'none';
                 }
+            };
+            document.addEventListener('click', handleDocumentClick);
+            
+            // Store reference for cleanup
+            if (!window.eventListeners) {
+                window.eventListeners = [];
+            }
+            window.eventListeners.push({
+                element: document,
+                event: 'click',
+                handler: handleDocumentClick
             });
         }
 
@@ -925,11 +1012,9 @@
                     // Sett dato 10 år tilbake
                     const date = new Date();
                     date.setFullYear(date.getFullYear() - 10);
-                    date.setMonth(0); // Januar
-                    date.setDate(1);  // Første dag
-                    const timezoneOffset = date.getTimezoneOffset() * 60000;
-                    const adjustedDate = new Date(date.getTime() - timezoneOffset);
-                    livedInNorwayInput.value = adjustedDate.toISOString();
+                    date.setMonth(0, 1); // Januar, første dag
+                    date.setHours(12, 0, 0, 0); // Middag for å unngå timezone-problemer
+                    livedInNorwayInput.value = date.toISOString();
                     console.log(`Lagret dato for 10+ år: ${livedInNorwayInput.value}`);
 
                     // Vis respons og gå til neste steg
@@ -982,9 +1067,8 @@
                 
                 // Sett datoen til 1. januar det valgte året
                 const date = new Date(year, 0, 1);
-                const timezoneOffset = date.getTimezoneOffset() * 60000; // Offset in milliseconds
-                const adjustedDate = new Date(date.getTime() - timezoneOffset);
-                livedInNorwayInput.value = adjustedDate.toISOString();
+                date.setHours(12, 0, 0, 0); // Middag for å unngå timezone-problemer
+                livedInNorwayInput.value = date.toISOString();
                 console.log(`År valgt: ${year}, lagret dato: ${livedInNorwayInput.value}`);
                 
                 // Vis respons og gå til neste steg
@@ -1405,10 +1489,10 @@
                 // If it's duration in years
                 date = new Date();
                 date.setFullYear(date.getFullYear() - yearOrDuration);
-                date.setMonth(0);
-                date.setDate(1);
+                date.setMonth(0, 1);
             }
             
+            date.setHours(12, 0, 0, 0); // Middag for å unngå timezone-problemer
             employmentDateInput.value = date.toISOString();
         }
 
