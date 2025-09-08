@@ -11,11 +11,13 @@ This is a Norwegian loan application portal ("Din Finansportal") built as a sing
 **Single-File Structure**: The entire application is contained within `index.html` with embedded CSS and JavaScript. This approach was chosen for simplicity and ease of deployment, but makes the file quite large (~3000+ lines).
 
 **Key Components**:
+
 - HTML structure defines all form steps (`.chat-step`) that are shown/hidden dynamically
 - CSS includes custom animations (`@keyframes`) for UI transitions (fade-in, slide-in, pulse, glow)
 - JavaScript handles all application logic including form navigation, validation, and submission
 
 **Multi-Step Form Flow**: The application uses a progressive disclosure pattern with numbered steps:
+
 1. Email collection
 2. Loan amount selection (preset buttons + dropdown)
 3. Phone number
