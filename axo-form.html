@@ -1,570 +1,581 @@
 <!-- axo-form.html -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nb">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Din Finansportal - Fullfør din søknad</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="css/style.css">
- 
-</head>
-<body>
-    <header>
-        <div class="container header-content">
-            <a href="/" class="logo-form-page animate-in">Din Finansportal</a>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container hero-content">
-            <h1 class="hero-title">Fullfør din søknad</h1>
-            <p class="hero-subtitle">Vi er nesten ferdige. Fyll ut de resterende detaljene for å fullføre din søknad.</p>
-        </div>
-    </section>
-
-    <main>
-        <div class="container">
-            <div class="form-container">
-                <script id='axo-script' src='https://form.axo-test.io/axofinans.no/loan-application/main.js' type='module'></script>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>Din Finansportal - Fullfør din søknad</title>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <header>
+            <div class="container header-content">
+                <a href="/" class="logo-form-page animate-in">Din Finansportal</a>
             </div>
-        </div>
-    </main>
+        </header>
 
-    <footer>
-        <div class="container footer-content">
-            <p class="footer-text">© 2024 Din Finansportal. Alle rettigheter forbeholdt.</p>
-        </div>
-    </footer>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1 class="hero-title">Fullfør din søknad</h1>
+                <p class="hero-subtitle">
+                    Vi er nesten ferdige. Fyll ut de resterende detaljene for å fullføre din søknad.
+                </p>
+            </div>
+        </section>
 
-    <script>
-        // Add animation to form elements as they appear
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
+        <main>
+            <div class="container">
+                <div class="form-container">
+                    <script
+                        id="axo-script"
+                        src="https://form.axo-test.io/axofinans.no/loan-application/main.js"
+                        type="module"
+                    ></script>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="container footer-content">
+                <p class="footer-text">© 2024 Din Finansportal. Alle rettigheter forbeholdt.</p>
+            </div>
+        </footer>
+
+        <script>
+            // Add animation to form elements as they appear
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("animate-in");
+                        }
+                    });
+                },
+                {
+                    threshold: 0.1,
                 }
+            );
+
+            document.querySelectorAll('[class*="axo-"]').forEach((el) => {
+                observer.observe(el);
             });
-        }, {
-            threshold: 0.1
-        });
+        </script>
+        <style>
+            :root {
+                --primary-color: #0066cc;
+                --secondary-color: #004c99;
+                --background-color: #f5f7fa;
+                --text-color: #1a1a1a;
+                --border-color: #e5e7eb;
+                --error-color: #dc2626;
+                --success-color: #059669;
+            }
 
-        document.querySelectorAll('[class*="axo-"]').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
-       <style>
-        :root {
-            --primary-color: #0066CC;
-            --secondary-color: #004C99;
-            --background-color: #F5F7FA;
-            --text-color: #1A1A1A;
-            --border-color: #E5E7EB;
-            --error-color: #DC2626;
-            --success-color: #059669;
-        }
+            /* Custom styling for Axo form */
+            #axo-root {
+                --button-color: #0066cc;
+                --button-color-background-primary: #0066cc;
+                --button-color-border-primary: #0066cc;
 
-        /* Custom styling for Axo form */
-        #axo-root {
-            --button-color: #0066CC;
-            --button-color-background-primary: #0066CC;
-            --button-color-border-primary: #0066CC;
-            
-            --primary-100: #eef6ff;
-            --primary-rgb-100: 238, 246, 255;
-            --primary-200: #bad9fd;
-            --primary-rgb-200: 186, 217, 253;
-            --primary-300: #98c7fc;
-            --primary-rgb-300: 152, 199, 252;
-            --primary-500: #0066CC;
-            --primary-rgb-500: 0, 102, 204;
-            --primary-700: #004C99;
-            --primary-rgb-700: 0, 76, 153;
-            --primary-900: #003366;
-            --primary-rgb-900: 0, 51, 102;
+                --primary-100: #eef6ff;
+                --primary-rgb-100: 238, 246, 255;
+                --primary-200: #bad9fd;
+                --primary-rgb-200: 186, 217, 253;
+                --primary-300: #98c7fc;
+                --primary-rgb-300: 152, 199, 252;
+                --primary-500: #0066cc;
+                --primary-rgb-500: 0, 102, 204;
+                --primary-700: #004c99;
+                --primary-rgb-700: 0, 76, 153;
+                --primary-900: #003366;
+                --primary-rgb-900: 0, 51, 102;
 
-            --secondary-100: #F5F7FA;
-            --secondary-rgb-100: 245, 247, 250;
-            --secondary-200: #E5E7EB;
-            --secondary-rgb-200: 229, 231, 235;
-            --secondary-300: #D1D5DB;
-            --secondary-rgb-300: 209, 213, 219;
-            --secondary-500: #9CA3AF;
-            --secondary-rgb-500: 156, 163, 175;
-            --secondary-700: #4B5563;
-            --secondary-rgb-700: 75, 85, 99;
-            --secondary-900: #1A1A1A;
-            --secondary-rgb-900: 26, 26, 26;
+                --secondary-100: #f5f7fa;
+                --secondary-rgb-100: 245, 247, 250;
+                --secondary-200: #e5e7eb;
+                --secondary-rgb-200: 229, 231, 235;
+                --secondary-300: #d1d5db;
+                --secondary-rgb-300: 209, 213, 219;
+                --secondary-500: #9ca3af;
+                --secondary-rgb-500: 156, 163, 175;
+                --secondary-700: #4b5563;
+                --secondary-rgb-700: 75, 85, 99;
+                --secondary-900: #1a1a1a;
+                --secondary-rgb-900: 26, 26, 26;
 
-            --success-100: #e5f8f4;
-            --success-rgb-100: 229, 248, 244;
-            --success-200: #80dbca;
-            --success-rgb-200: 128, 219, 202;
-            --success-300: #00caa6;
-            --success-rgb-300: 0, 202, 166;
-            --success-500: #059669;
-            --success-rgb-500: 5, 150, 105;
-            --success-700: #047857;
-            --success-rgb-700: 4, 120, 87;
-            --success-900: #065F46;
-            --success-rgb-900: 6, 95, 70;
+                --success-100: #e5f8f4;
+                --success-rgb-100: 229, 248, 244;
+                --success-200: #80dbca;
+                --success-rgb-200: 128, 219, 202;
+                --success-300: #00caa6;
+                --success-rgb-300: 0, 202, 166;
+                --success-500: #059669;
+                --success-rgb-500: 5, 150, 105;
+                --success-700: #047857;
+                --success-rgb-700: 4, 120, 87;
+                --success-900: #065f46;
+                --success-rgb-900: 6, 95, 70;
 
-            --danger-100: #FEE2E2;
-            --danger-rgb-100: 254, 226, 226;
-            --danger-200: #FECACA;
-            --danger-rgb-200: 254, 202, 202;
-            --danger-300: #FCA5A5;
-            --danger-rgb-300: 252, 165, 165;
-            --danger-500: #DC2626;
-            --danger-rgb-500: 220, 38, 38;
-            --danger-700: #B91C1C;
-            --danger-rgb-700: 185, 28, 28;
-            --danger-900: #991B1B;
-            --danger-rgb-900: 153, 27, 27;
+                --danger-100: #fee2e2;
+                --danger-rgb-100: 254, 226, 226;
+                --danger-200: #fecaca;
+                --danger-rgb-200: 254, 202, 202;
+                --danger-300: #fca5a5;
+                --danger-rgb-300: 252, 165, 165;
+                --danger-500: #dc2626;
+                --danger-rgb-500: 220, 38, 38;
+                --danger-700: #b91c1c;
+                --danger-rgb-700: 185, 28, 28;
+                --danger-900: #991b1b;
+                --danger-rgb-900: 153, 27, 27;
 
-            --light-100: #FCFCFC;
-            --light-rgb-100: 252, 252, 252;
-            --light-200: #F8F8F8;
-            --light-rgb-200: 248, 248, 248;
-            --light-300: #F5F7FA;
-            --light-rgb-300: 245, 247, 250;
-            --light-400: #E5E7EB;
-            --light-rgb-400: 229, 231, 235;
-            --light-500: #D1D5DB;
-            --light-rgb-500: 209, 213, 219;
-            --light-600: #9CA3AF;
-            --light-rgb-600: 156, 163, 175;
-            --light-700: #6B7280;
-            --light-rgb-700: 107, 114, 128;
-            --light-900: #4B5563;
-            --light-rgb-900: 75, 85, 99;
+                --light-100: #fcfcfc;
+                --light-rgb-100: 252, 252, 252;
+                --light-200: #f8f8f8;
+                --light-rgb-200: 248, 248, 248;
+                --light-300: #f5f7fa;
+                --light-rgb-300: 245, 247, 250;
+                --light-400: #e5e7eb;
+                --light-rgb-400: 229, 231, 235;
+                --light-500: #d1d5db;
+                --light-rgb-500: 209, 213, 219;
+                --light-600: #9ca3af;
+                --light-rgb-600: 156, 163, 175;
+                --light-700: #6b7280;
+                --light-rgb-700: 107, 114, 128;
+                --light-900: #4b5563;
+                --light-rgb-900: 75, 85, 99;
 
-            --dark-100: #6B7280;
-            --dark-rgb-100: 107, 114, 128;
-            --dark-200: #4B5563;
-            --dark-rgb-200: 75, 85, 99;
-            --dark-300: #374151;
-            --dark-rgb-300: 55, 65, 81;
-            --dark-500: #1F2937;
-            --dark-rgb-500: 31, 41, 55;
-            --dark-700: #111827;
-            --dark-rgb-700: 17, 24, 39;
-            --dark-900: #1A1A1A;
-            --dark-rgb-900: 26, 26, 26;
+                --dark-100: #6b7280;
+                --dark-rgb-100: 107, 114, 128;
+                --dark-200: #4b5563;
+                --dark-rgb-200: 75, 85, 99;
+                --dark-300: #374151;
+                --dark-rgb-300: 55, 65, 81;
+                --dark-500: #1f2937;
+                --dark-rgb-500: 31, 41, 55;
+                --dark-700: #111827;
+                --dark-rgb-700: 17, 24, 39;
+                --dark-900: #1a1a1a;
+                --dark-rgb-900: 26, 26, 26;
 
-            /* Aliases */
-            --primary-color: var(--primary-500);
-            --secondary-color: var(--secondary-500);
-            --black-color: var(--dark-900);
-            --text-color: var(--dark-900);
-            --white-color: #FFFFFF;
-            --success-color: var(--success-500);
-            --danger-color: var(--danger-500);
-            --danger-light-color: var(--danger-100);
-            --info-color: var(--primary-500);
+                /* Aliases */
+                --primary-color: var(--primary-500);
+                --secondary-color: var(--secondary-500);
+                --black-color: var(--dark-900);
+                --text-color: var(--dark-900);
+                --white-color: #ffffff;
+                --success-color: var(--success-500);
+                --danger-color: var(--danger-500);
+                --danger-light-color: var(--danger-100);
+                --info-color: var(--primary-500);
 
-            /* BORDERS */
-            --border-radius: 8px;
+                /* BORDERS */
+                --border-radius: 8px;
 
-            /* INPUT FIELDS ELEVATION */
-            --box-shadow-base: 0 0 0 2px;
-            --box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
-            --box-shadow-danger: 0 0 0 2px rgba(220, 38, 38, 0.1);
-            --box-shadow-success: 0 0 0 2px rgba(5, 150, 105, 0.1);
+                /* INPUT FIELDS ELEVATION */
+                --box-shadow-base: 0 0 0 2px;
+                --box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+                --box-shadow-danger: 0 0 0 2px rgba(220, 38, 38, 0.1);
+                --box-shadow-success: 0 0 0 2px rgba(5, 150, 105, 0.1);
 
-            /* ELEVATION */
-            --bottom-container-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            --bottom-container-spread: 0 0 8px rgba(0, 0, 0, 0.05);
+                /* ELEVATION */
+                --bottom-container-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+                --bottom-container-spread: 0 0 8px rgba(0, 0, 0, 0.05);
 
-            /* FONT SIZES */
-            --font-small-1: 12px;
-            --font-small-2: 14px;
-            --font-small-3: 16px;
-            --font-medium-1: 18px;
-            --font-medium-2: 20px;
-            --font-medium-3: 24px;
-            --font-medium-4: 32px;
-            --font-large-1: 40px;
-            --font-large-2: 48px;
-            --font-large-3: 60px;
+                /* FONT SIZES */
+                --font-small-1: 12px;
+                --font-small-2: 14px;
+                --font-small-3: 16px;
+                --font-medium-1: 18px;
+                --font-medium-2: 20px;
+                --font-medium-3: 24px;
+                --font-medium-4: 32px;
+                --font-large-1: 40px;
+                --font-large-2: 48px;
+                --font-large-3: 60px;
 
-            /* CTAS FONT SIZE */
-            --cta-button-font-size: 16px;
+                /* CTAS FONT SIZE */
+                --cta-button-font-size: 16px;
 
-            /* FONT WEIGHTS */
-            --font-weight-normal: normal;
-            --font-weight-semibold: 600;
-            --font-weight-bold: 700;
+                /* FONT WEIGHTS */
+                --font-weight-normal: normal;
+                --font-weight-semibold: 600;
+                --font-weight-bold: 700;
 
-            /* FONTS */
-            --font-family-heading: 'Inter', sans-serif;
-            --font-family-content: 'Inter', sans-serif;
+                /* FONTS */
+                --font-family-heading: "Inter", sans-serif;
+                --font-family-content: "Inter", sans-serif;
 
-            /* LINE HEIGHTS */
-            --line-height-heading: 1.2;
-            --line-height-content: 1.6;
-        }
+                /* LINE HEIGHTS */
+                --line-height-heading: 1.2;
+                --line-height-content: 1.6;
+            }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                -webkit-tap-highlight-color: transparent;
+            }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+            body {
+                font-family: "Inter", sans-serif;
+                line-height: 1.6;
+                color: var(--text-color);
+                background-color: var(--background-color);
+                min-height: 100vh;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        header {
-            background-color: white;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-form-page {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .hero {
-            position: relative;
-            padding: 8rem 0 4rem;
-            background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
-            text-align: center;
-            margin-bottom: 2rem;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-            animation: slideIn 0.8s ease-out forwards;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: #4B5563;
-            margin-bottom: 2rem;
-            animation: fadeIn 0.8s ease-out 0.2s forwards;
-            opacity: 0;
-        }
-
-        main {
-            padding: 2rem 0;
-            min-height: calc(100vh - 300px);
-        }
-
-        .form-container {
-            background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            animation: fadeIn 0.6s ease-out 0.4s forwards;
-            opacity: 0;
-            width: 100%;
-            max-width: 1080px;
-            margin: 0 auto;
-        }
-
-        /* Style injeksjoner for Axo-skjemaet */
-        :root {
-            --axo-spacing-md: 1rem;
-            --axo-spacing-lg: 1.5rem;
-        }
-
-        /* Additional styling for Axo form */
-        #axo-script {
-            display: block;
-            margin-top: 1.5rem;
-            font-size: 16px !important;
-        }
-
-        /* Specific style overrides for the Axo form elements */
-        #axo-root {
-            font-family: 'Inter', sans-serif !important;
-            max-width: 100% !important;
-        }
-
-        #axo-root h1, 
-        #axo-root h2, 
-        #axo-root h3 {
-            font-family: 'Inter', sans-serif !important;
-            color: var(--text-color) !important;
-            font-weight: 700 !important;
-        }
-
-        #axo-root button {
-            background-color: var(--primary-500) !important;
-            color: white !important;
-            font-weight: 500 !important;
-            padding: 0.875rem 1.5rem !important;
-            border-radius: 0.5rem !important;
-            transition: all 0.2s ease !important;
-            border: none !important;
-            font-family: 'Inter', sans-serif !important;
-            cursor: pointer !important;
-        }
-
-        #axo-root button:hover {
-            background-color: var(--primary-700) !important;
-            transform: translateY(-1px) !important;
-            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15) !important;
-        }
-
-        #axo-root button:active {
-            transform: translateY(0) !important;
-        }
-
-        #axo-root input, 
-        #axo-root select, 
-        #axo-root textarea {
-            padding: 0.875rem !important;
-            border: 2px solid var(--border-color) !important;
-            border-radius: 0.5rem !important;
-            font-size: 16px !important;
-            transition: all 0.2s ease !important;
-            background-color: var(--background-color) !important;
-            font-family: 'Inter', sans-serif !important;
-        }
-
-        #axo-root input:focus, 
-        #axo-root select:focus, 
-        #axo-root textarea:focus {
-            outline: none !important;
-            border-color: var(--primary-500) !important;
-            box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1) !important;
-            transform: translateY(-1px) !important;
-        }
-
-        #axo-root label {
-            font-weight: 500 !important;
-            margin-bottom: 0.5rem !important;
-            display: block !important;
-            color: var(--text-color) !important;
-            font-size: 14px !important;
-            font-family: 'Inter', sans-serif !important;
-        }
-
-        #axo-root [class*="axo-"] {
-            margin-bottom: 1rem !important;
-        }
-
-        /* Select styling */
-        #axo-root select {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236B7280' viewBox='0 0 16 16'%3E%3Cpath d='M8 10.5l4-4H4l4 4z'/%3E%3C/svg%3E") !important;
-            background-repeat: no-repeat !important;
-            background-position: right 0.75rem center !important;
-            padding-right: 2.5rem !important;
-            -webkit-appearance: none !important;
-            appearance: none !important;
-        }
-
-        /* Radio and Checkbox styling */
-        #axo-root input[type="radio"],
-        #axo-root input[type="checkbox"] {
-            width: auto !important;
-            margin-right: 0.5rem !important;
-            cursor: pointer !important;
-            accent-color: var(--primary-500) !important;
-        }
-
-        #axo-root input[type="radio"] + label,
-        #axo-root input[type="checkbox"] + label {
-            display: inline-block !important;
-            cursor: pointer !important;
-            margin-bottom: 0 !important;
-        }
-
-        /* Container styling */
-        #axo-root .axo-container,
-        #axo-root [class*="axo-container"] {
-            background-color: white !important;
-            border-radius: 12px !important;
-            padding: 1.5rem !important;
-            margin-bottom: 2rem !important;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
-        }
-
-        /* Form groups */
-        #axo-root .axo-form-group,
-        #axo-root [class*="axo-form-group"] {
-            margin-bottom: 1.5rem !important;
-        }
-
-        /* Headings */
-        #axo-root .axo-heading,
-        #axo-root [class*="axo-heading"] {
-            color: var(--text-color) !important;
-            font-weight: 600 !important;
-            margin-bottom: 1rem !important;
-            font-size: 1.25rem !important;
-        }
-
-        /* Error messages */
-        #axo-root .axo-error,
-        #axo-root [class*="axo-error"] {
-            color: var(--danger-500) !important;
-            font-size: 0.875rem !important;
-            margin-top: 0.25rem !important;
-        }
-
-        /* Success messages */
-        #axo-root .axo-success,
-        #axo-root [class*="axo-success"] {
-            color: var(--success-500) !important;
-            font-size: 0.875rem !important;
-            margin-top: 0.25rem !important;
-        }
-
-        /* Ensure input widths */
-        #axo-root input:not([type="radio"]):not([type="checkbox"]),
-        #axo-root select,
-        #axo-root textarea {
-            width: 100% !important;
-            max-width: 100% !important;
-        }
-
-        /* Progress indicators if any */
-        #axo-root .axo-progress,
-        #axo-root [class*="axo-progress"] {
-            background-color: var(--light-300) !important;
-            height: 0.5rem !important;
-            border-radius: 1rem !important;
-            margin-bottom: 2rem !important;
-            overflow: hidden !important;
-        }
-
-        #axo-root .axo-progress-bar,
-        #axo-root [class*="axo-progress-bar"] {
-            background-color: var(--primary-500) !important;
-            height: 100% !important;
-            border-radius: 1rem !important;
-            transition: width 0.3s ease !important;
-        }
-
-        /* Mobile adjustments */
-        @media (max-width: 768px) {
             .container {
-                padding: 0 1rem;
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 1.5rem;
+            }
+
+            header {
+                background-color: white;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                padding: 1rem 0;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 1000;
+            }
+
+            .header-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo-form-page {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: var(--primary-color);
+                text-decoration: none;
             }
 
             .hero {
-                padding-top: 6rem;
-                padding-bottom: 3rem;
+                position: relative;
+                padding: 8rem 0 4rem;
+                background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+                text-align: center;
+                margin-bottom: 2rem;
+                overflow: hidden;
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 1;
+                max-width: 800px;
+                margin: 0 auto;
             }
 
             .hero-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                color: var(--text-color);
+                animation: slideIn 0.8s ease-out forwards;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+                color: #4b5563;
+                margin-bottom: 2rem;
+                animation: fadeIn 0.8s ease-out 0.2s forwards;
+                opacity: 0;
+            }
+
+            main {
+                padding: 2rem 0;
+                min-height: calc(100vh - 300px);
             }
 
             .form-container {
-                padding: 1.5rem;
-                border-radius: 0;
-                box-shadow: none;
+                background: white;
+                padding: 3rem;
+                border-radius: 12px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+                animation: fadeIn 0.6s ease-out 0.4s forwards;
+                opacity: 0;
+                width: 100%;
+                max-width: 1080px;
+                margin: 0 auto;
             }
 
-            [class*="axo-"] input,
-            [class*="axo-"] select,
-            [class*="axo-"] button {
-                min-height: 44px;
+            /* Style injeksjoner for Axo-skjemaet */
+            :root {
+                --axo-spacing-md: 1rem;
+                --axo-spacing-lg: 1.5rem;
             }
 
-            #axo-root button,
+            /* Additional styling for Axo form */
+            #axo-script {
+                display: block;
+                margin-top: 1.5rem;
+                font-size: 16px !important;
+            }
+
+            /* Specific style overrides for the Axo form elements */
+            #axo-root {
+                font-family: "Inter", sans-serif !important;
+                max-width: 100% !important;
+            }
+
+            #axo-root h1,
+            #axo-root h2,
+            #axo-root h3 {
+                font-family: "Inter", sans-serif !important;
+                color: var(--text-color) !important;
+                font-weight: 700 !important;
+            }
+
+            #axo-root button {
+                background-color: var(--primary-500) !important;
+                color: white !important;
+                font-weight: 500 !important;
+                padding: 0.875rem 1.5rem !important;
+                border-radius: 0.5rem !important;
+                transition: all 0.2s ease !important;
+                border: none !important;
+                font-family: "Inter", sans-serif !important;
+                cursor: pointer !important;
+            }
+
+            #axo-root button:hover {
+                background-color: var(--primary-700) !important;
+                transform: translateY(-1px) !important;
+                box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15) !important;
+            }
+
+            #axo-root button:active {
+                transform: translateY(0) !important;
+            }
+
             #axo-root input,
             #axo-root select,
             #axo-root textarea {
-                font-size: 16px !important; /* Prevents zoom on mobile */
-                min-height: 44px !important; /* Better touch targets */
+                padding: 0.875rem !important;
+                border: 2px solid var(--border-color) !important;
+                border-radius: 0.5rem !important;
+                font-size: 16px !important;
+                transition: all 0.2s ease !important;
+                background-color: var(--background-color) !important;
+                font-family: "Inter", sans-serif !important;
             }
-            
+
+            #axo-root input:focus,
+            #axo-root select:focus,
+            #axo-root textarea:focus {
+                outline: none !important;
+                border-color: var(--primary-500) !important;
+                box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1) !important;
+                transform: translateY(-1px) !important;
+            }
+
+            #axo-root label {
+                font-weight: 500 !important;
+                margin-bottom: 0.5rem !important;
+                display: block !important;
+                color: var(--text-color) !important;
+                font-size: 14px !important;
+                font-family: "Inter", sans-serif !important;
+            }
+
+            #axo-root [class*="axo-"] {
+                margin-bottom: 1rem !important;
+            }
+
+            /* Select styling */
+            #axo-root select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236B7280' viewBox='0 0 16 16'%3E%3Cpath d='M8 10.5l4-4H4l4 4z'/%3E%3C/svg%3E") !important;
+                background-repeat: no-repeat !important;
+                background-position: right 0.75rem center !important;
+                padding-right: 2.5rem !important;
+                -webkit-appearance: none !important;
+                appearance: none !important;
+            }
+
+            /* Radio and Checkbox styling */
+            #axo-root input[type="radio"],
+            #axo-root input[type="checkbox"] {
+                width: auto !important;
+                margin-right: 0.5rem !important;
+                cursor: pointer !important;
+                accent-color: var(--primary-500) !important;
+            }
+
+            #axo-root input[type="radio"] + label,
+            #axo-root input[type="checkbox"] + label {
+                display: inline-block !important;
+                cursor: pointer !important;
+                margin-bottom: 0 !important;
+            }
+
+            /* Container styling */
             #axo-root .axo-container,
             #axo-root [class*="axo-container"] {
-                padding: 1rem !important;
-                border-radius: 8px !important;
+                background-color: white !important;
+                border-radius: 12px !important;
+                padding: 1.5rem !important;
+                margin-bottom: 2rem !important;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
             }
-        }
 
-        /* Footer styling */
-        footer {
-            background-color: white;
-            padding: 2rem 0;
-            border-top: 1px solid var(--border-color);
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .footer-text {
-            color: #666;
-            font-size: 0.875rem;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
+            /* Form groups */
+            #axo-root .axo-form-group,
+            #axo-root [class*="axo-form-group"] {
+                margin-bottom: 1.5rem !important;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
-        @keyframes slideIn {
-            from {
-                transform: translateX(-10px);
-                opacity: 0;
+            /* Headings */
+            #axo-root .axo-heading,
+            #axo-root [class*="axo-heading"] {
+                color: var(--text-color) !important;
+                font-weight: 600 !important;
+                margin-bottom: 1rem !important;
+                font-size: 1.25rem !important;
             }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
 
-        .animate-in {
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-    </style>
-</body>
+            /* Error messages */
+            #axo-root .axo-error,
+            #axo-root [class*="axo-error"] {
+                color: var(--danger-500) !important;
+                font-size: 0.875rem !important;
+                margin-top: 0.25rem !important;
+            }
+
+            /* Success messages */
+            #axo-root .axo-success,
+            #axo-root [class*="axo-success"] {
+                color: var(--success-500) !important;
+                font-size: 0.875rem !important;
+                margin-top: 0.25rem !important;
+            }
+
+            /* Ensure input widths */
+            #axo-root input:not([type="radio"]):not([type="checkbox"]),
+            #axo-root select,
+            #axo-root textarea {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            /* Progress indicators if any */
+            #axo-root .axo-progress,
+            #axo-root [class*="axo-progress"] {
+                background-color: var(--light-300) !important;
+                height: 0.5rem !important;
+                border-radius: 1rem !important;
+                margin-bottom: 2rem !important;
+                overflow: hidden !important;
+            }
+
+            #axo-root .axo-progress-bar,
+            #axo-root [class*="axo-progress-bar"] {
+                background-color: var(--primary-500) !important;
+                height: 100% !important;
+                border-radius: 1rem !important;
+                transition: width 0.3s ease !important;
+            }
+
+            /* Mobile adjustments */
+            @media (max-width: 768px) {
+                .container {
+                    padding: 0 1rem;
+                }
+
+                .hero {
+                    padding-top: 6rem;
+                    padding-bottom: 3rem;
+                }
+
+                .hero-title {
+                    font-size: 2rem;
+                }
+
+                .form-container {
+                    padding: 1.5rem;
+                    border-radius: 0;
+                    box-shadow: none;
+                }
+
+                [class*="axo-"] input,
+                [class*="axo-"] select,
+                [class*="axo-"] button {
+                    min-height: 44px;
+                }
+
+                #axo-root button,
+                #axo-root input,
+                #axo-root select,
+                #axo-root textarea {
+                    font-size: 16px !important; /* Prevents zoom on mobile */
+                    min-height: 44px !important; /* Better touch targets */
+                }
+
+                #axo-root .axo-container,
+                #axo-root [class*="axo-container"] {
+                    padding: 1rem !important;
+                    border-radius: 8px !important;
+                }
+            }
+
+            /* Footer styling */
+            footer {
+                background-color: white;
+                padding: 2rem 0;
+                border-top: 1px solid var(--border-color);
+                margin-top: 4rem;
+            }
+
+            .footer-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-text {
+                color: #666;
+                font-size: 0.875rem;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes slideIn {
+                from {
+                    transform: translateX(-10px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            .animate-in {
+                animation: fadeIn 0.6s ease-out forwards;
+            }
+        </style>
+    </body>
 </html>

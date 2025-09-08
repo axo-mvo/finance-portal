@@ -1,318 +1,400 @@
 <!-- index.html -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nb">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Din Finansportal - Din vei til bedre økonomi</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header>
-        <div class="container header-content">
-            <a href="/" class="logo animate-in">Din Finansportal</a>
-        </div>
-    </header>
-
-    <section class="background-image-section">
-        <img src="images/image2.png" alt="Fornøyde kunder med kredittkort" class="background-image">
-        <div class="background-content">
-            <p>&nbsp;</p>
-            <h2 class="background-title">Enkel og trygg finansiering</h2>
-            <p class="background-text">Vi hjelper deg med å finne de beste lånevilkårene tilpasset din situasjon.</p>
-        </div>
-    </section>
-
-
-    <section class="form-section" id="form-section">
-        <div class="container">
-            <div class="form-container animate-in">
-                <h2 class="form-title">La oss hjelpe deg med finansieringen</h2>
-                <form id="loan-form" class="chat-form" novalidate>
-                    <div class="chat-step active" data-step="1">
-                        <div class="chat-question">
-                            Hei! La oss starte med din e-postadresse så vi kan holde kontakten.
-                        </div>
-                        <div class="chat-input-container">
-                            <input type="email" class="chat-input" name="Email" placeholder="Din e-postadresse" required>
-                            <button type="button" class="chat-next-btn">Neste</button>
-                        </div>
-                    </div>
-
-                    <div class="chat-step" data-step="2">
-                        <div class="chat-question">
-                            Supert! Hvor mye ønsker du å låne?
-                        </div>
-                        <div class="chat-input-container loan-amount-container">
-                            <div class="preset-amounts">
-                                <button type="button" class="preset-amount-btn" data-amount="250000">250 000 kr</button>
-                                <button type="button" class="preset-amount-btn" data-amount="500000">500 000 kr</button>
-                                <button type="button" class="preset-amount-btn" data-amount="800000">800 000 kr</button>
-                            </div>
-                            <div class="dropdown-button-row">
-                                <div class="select-wrapper">
-                                    <select class="loan-amount-select" name="AppliedAmount" required>
-                                        <option value="" disabled selected>Velg annet beløp</option>
-                                        <option value="10000">10 000 kr</option>
-                                        <option value="15000">15 000 kr</option>
-                                        <option value="20000">20 000 kr</option>
-                                        <option value="25000">25 000 kr</option>
-                                        <option value="30000">30 000 kr</option>
-                                        <option value="35000">35 000 kr</option>
-                                        <option value="40000">40 000 kr</option>
-                                        <option value="45000">45 000 kr</option>
-                                        <option value="50000">50 000 kr</option>
-                                        <option value="55000">55 000 kr</option>
-                                        <option value="60000">60 000 kr</option>
-                                        <option value="65000">65 000 kr</option>
-                                        <option value="70000">70 000 kr</option>
-                                        <option value="75000">75 000 kr</option>
-                                        <option value="80000">80 000 kr</option>
-                                        <option value="85000">85 000 kr</option>
-                                        <option value="90000">90 000 kr</option>
-                                        <option value="95000">95 000 kr</option>
-                                        <option value="100000">100 000 kr</option>
-                                        <option value="105000">105 000 kr</option>
-                                        <option value="110000">110 000 kr</option>
-                                        <option value="115000">115 000 kr</option>
-                                        <option value="120000">120 000 kr</option>
-                                        <option value="125000">125 000 kr</option>
-                                        <option value="130000">130 000 kr</option>
-                                        <option value="135000">135 000 kr</option>
-                                        <option value="140000">140 000 kr</option>
-                                        <option value="145000">145 000 kr</option>
-                                        <option value="150000">150 000 kr</option>
-                                        <option value="155000">155 000 kr</option>
-                                        <option value="160000">160 000 kr</option>
-                                        <option value="165000">165 000 kr</option>
-                                        <option value="170000">170 000 kr</option>
-                                        <option value="175000">175 000 kr</option>
-                                        <option value="180000">180 000 kr</option>
-                                        <option value="185000">185 000 kr</option>
-                                        <option value="190000">190 000 kr</option>
-                                        <option value="195000">195 000 kr</option>
-                                        <option value="200000">200 000 kr</option>
-                                        <option value="250000">250 000 kr</option>
-                                        <option value="300000">300 000 kr</option>
-                                        <option value="350000">350 000 kr</option>
-                                        <option value="400000">400 000 kr</option>
-                                        <option value="450000">450 000 kr</option>
-                                        <option value="500000">500 000 kr</option>
-                                        <option value="550000">550 000 kr</option>
-                                        <option value="600000">600 000 kr</option>
-                                        <option value="650000">650 000 kr</option>
-                                        <option value="700000">700 000 kr</option>
-                                        <option value="750000">750 000 kr</option>
-                                        <option value="800000">800 000 kr</option>
-                                    </select>
-                                </div>
-                                <button type="button" class="chat-next-btn income-next-btn">Neste</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="chat-step" data-step="3">
-                        <div class="chat-question">
-                            Hvor mange år ønsker du å betale lånet over?
-                        </div>
-                        <div class="chat-input-container loan-amount-container">
-                            <div class="preset-amounts">
-                                <button type="button" class="preset-duration-btn" data-duration="5">5 år</button>
-                                <button type="button" class="preset-duration-btn" data-duration="10">10 år</button>
-                                <button type="button" class="preset-duration-btn" data-duration="15">15 år</button>
-                                <button type="button" class="preset-duration-btn" data-duration="20">20 år</button>
-                            </div>
-                            <div class="duration-dropdown-button-row">
-                                <div class="select-wrapper">
-                                    <select class="loan-amount-select" name="LoanDuration" required>
-                                        <option value="" disabled selected>Velg annet antall</option>
-                                        <option value="1">1 år</option>
-                                        <option value="2">2 år</option>
-                                        <option value="3">3 år</option>
-                                        <option value="4">4 år</option>
-                                        <option value="5">5 år</option>
-                                        <option value="6">6 år</option>
-                                        <option value="7">7 år</option>
-                                        <option value="8">8 år</option>
-                                        <option value="9">9 år</option>
-                                        <option value="10">10 år</option>
-                                        <option value="11">11 år</option>
-                                        <option value="12">12 år</option>
-                                        <option value="13">13 år</option>
-                                        <option value="14">14 år</option>
-                                        <option value="15">15 år</option>
-                                        <option value="16">16 år</option>
-                                        <option value="17">17 år</option>
-                                        <option value="18">18 år</option>
-                                        <option value="19">19 år</option>
-                                        <option value="20">20 år</option>
-                                    </select>
-                                </div>
-                                <button type="button" class="chat-next-btn duration-next-btn">Neste</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="chat-step" data-step="4">
-                        <div class="chat-question">
-                            Flott! Når tilbuden er klare sender vi deg en SMS. Hvilket nummer kan vi nå deg på?
-                        </div>
-                        <div class="chat-input-container">
-                            <input type="tel" class="chat-input" name="PhoneNumber" placeholder="Ditt telefonnummer" required>
-                            <button type="button" class="chat-next-btn">Neste</button>
-                        </div>
-                    </div>
-
-                    <div class="chat-step" data-step="5">
-                        <div class="chat-question">
-                            Er du i jobb?
-                        </div>
-                        <div class="chat-input-container employment-container">
-                            <div class="employment-buttons">
-                                <button type="button" class="employment-btn" data-employment="fast">Fast</button>
-                                <button type="button" class="employment-btn" data-employment="midlertidig">Midlertidig</button>
-                                <button type="button" class="employment-btn" data-employment="selvstendig">Selvstendig</button>
-                                <button type="button" class="employment-btn" data-employment="nei">Nei</button>
-                            </div>
-                        </div>
-                        <div class="chat-input-container employment-type-container" style="display: none;">
-                            <div class="employment-buttons">
-                                <button type="button" class="employment-type-btn" data-type="Permanent">Privat</button>
-                                <button type="button" class="employment-type-btn" data-type="PermanentPublic">Offentlig</button>
-                            </div>
-                        </div>
-                        <div class="chat-input-container employer-container" style="display: none;">
-                            <input type="text" class="chat-input" name="EmployerName" placeholder="Navn på arbeidsgiver" required>
-                            <button type="button" class="chat-next-btn">Neste</button>
-                        </div>
-                        <div class="chat-input-container employment-duration-container" style="display: none;">
-                            <div class="employment-buttons">
-                                <button type="button" class="duration-btn employment-btn" data-duration="less-than-5">Mindre enn 5 år</button>
-                                <button type="button" class="duration-btn employment-btn" data-duration="5-to-10">Mellom 5 og 10 år</button>
-                                <button type="button" class="duration-btn employment-btn" data-duration="more-than-10">10 år eller mer</button>
-                            </div>
-                        </div>
-                        <div class="chat-input-container employment-year-container" style="display: none;">
-                            <div class="employment-buttons year-buttons">
-                                <!-- Will be populated dynamically -->
-                            </div>
-                        </div>
-                        <div class="chat-input-container non-employment-container" style="display: none;">
-                            <div class="employment-buttons">
-                                <button type="button" class="non-employment-btn" data-type="Pensioner">Pensjonist</button>
-                                <button type="button" class="non-employment-btn" data-type="Disabled">Uføretrygdet</button>
-                                <button type="button" class="non-employment-btn" data-type="Rehabilitation">Arbeidsavklaring/attføring</button>
-                            </div>
-                        </div>
-                        <input type="hidden" name="EmploymentStatus" required>
-                        <input type="hidden" name="EmploymentStatusSince" required>
-                    </div>
-
-                    <div class="chat-step" data-step="6">
-                        <div class="chat-question">
-                            Hva er din brutto årsinntekt?
-                        </div>
-                        <div class="chat-input-container">
-                            <input type="number" class="chat-input" name="GrossIncomeYearly" placeholder="Oppgi din brutto årsinntekt i kroner" min="0" max="100000000" step="1000" required>
-                            <button type="button" class="chat-next-btn">Neste</button>
-                        </div>
-                    </div>
-
-                    <div class="chat-step" data-step="7">
-                        <div class="chat-question">
-                            Har du høyere utdannelse?
-                        </div>
-                        <div class="chat-input-container">
-                            <div class="employment-buttons">
-                                <button type="button" class="education-btn" data-value="Higher education">Ja</button>
-                                <button type="button" class="education-btn" data-value="High school">Nei</button>
-                            </div>
-                        </div>
-                        <input type="hidden" name="Education" required>
-                    </div>
-
-                    <!-- Statsborgerskap spørsmål -->
-                    <div class="chat-step" data-step="8">
-                        <div class="chat-question">Er du norsk statsborger?</div>
-                        <div class="chat-input-container citizenship-container">
-                            <button class="chat-btn citizenship-btn" data-value="NO">Ja</button>
-                            <button class="chat-btn citizenship-btn" data-value="">Nei</button>
-                        </div>
-                        <div class="chat-input-container country-search-container" style="display: none;">
-                            <input type="text" class="chat-input country-search" placeholder="Søk etter land...">
-                            <div class="country-list"></div>
-                        </div>
-                        <input type="hidden" name="Citizenship" required>
-                    </div>
-
-                    <!-- Når flyttet du til Norge spørsmål -->
-                    <div class="chat-step" data-step="8.5">
-                        <div class="chat-question">
-                            Hvor lenge har du bodd i Norge?
-                        </div>
-                        <div class="chat-input-container duration-container">
-                            <div class="employment-buttons"> <!-- Bruker samme styling som ansettelsesknapper -->
-                                <button type="button" class="duration-btn norway-duration-btn" data-duration="less-than-5">Mindre enn 5 år</button>
-                                <button type="button" class="duration-btn norway-duration-btn" data-duration="5-to-10">Mellom 5 og 10 år</button>
-                                <button type="button" class="duration-btn norway-duration-btn" data-duration="more-than-10">10 år eller mer</button>
-                            </div>
-                        </div>
-                        <div class="chat-input-container year-container" style="display: none;"> <!-- Skjult som standard -->
-                            <div class="year-buttons">
-                                <!-- Knappene vil bli generert dynamisk med JavaScript -->
-                            </div>
-                            <input type="hidden" name="LivedInMarketCountrySince" required>
-                        </div>
-                    </div>
-
-                    <!-- Fødselsnummer spørsmål -->
-                    <div class="chat-step" data-step="10">
-                        <div class="chat-question">Hva er ditt fødselsnummer?</div>
-                        <div class="chat-input-container">
-                            <input type="text" class="chat-input" name="SocialSecurityNumber" placeholder="11 siffer" required>
-                            <!-- The submit button redirect us to the next step that's handled by the form in the axo-form.html file-->
-                            <button type="submit" class="chat-next-btn">Neste</button>
-                        </div>
-                    </div>
-                </form>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Din Finansportal - Din vei til bedre økonomi</title>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <header>
+            <div class="container header-content">
+                <a href="/" class="logo animate-in">Din Finansportal</a>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <section class="features">
-        <div class="container">
-            <div class="features-grid">
-                <div class="feature-card" data-delay="0">
-                    <h3 class="feature-title">Rask og enkel søknad</h3>
-                    <p class="feature-text">Fyll ut skjemaet på under 2 minutter og få svar på sekunder.</p>
-                </div>
-                <div class="feature-card" data-delay="200">
-                    <h3 class="feature-title">Konkurransedyktige renter</h3>
-                    <p class="feature-text">Vi tilbyr markedsledende renter og fleksible løpetider.</p>
-                </div>
-                <div class="feature-card" data-delay="400">
-                    <h3 class="feature-title">100% digital prosess</h3>
-                    <p class="feature-text">Alt kan gjøres på nett, ingen papirarbeid eller besøk til banken.</p>
+        <section class="background-image-section">
+            <img src="images/image2.png" alt="Fornøyde kunder med kredittkort" class="background-image" />
+            <div class="background-content">
+                <p>&nbsp;</p>
+                <h2 class="background-title">Enkel og trygg finansiering</h2>
+                <p class="background-text">
+                    Vi hjelper deg med å finne de beste lånevilkårene tilpasset din situasjon.
+                </p>
+            </div>
+        </section>
+
+        <section class="form-section" id="form-section">
+            <div class="container">
+                <div class="form-container animate-in">
+                    <h2 class="form-title">La oss hjelpe deg med finansieringen</h2>
+                    <form id="loan-form" class="chat-form" novalidate>
+                        <div class="chat-step active" data-step="1">
+                            <div class="chat-question">
+                                Hei! La oss starte med din e-postadresse så vi kan holde kontakten.
+                            </div>
+                            <div class="chat-input-container">
+                                <input
+                                    type="email"
+                                    class="chat-input"
+                                    name="Email"
+                                    placeholder="Din e-postadresse"
+                                    required
+                                />
+                                <button type="button" class="chat-next-btn">Neste</button>
+                            </div>
+                        </div>
+
+                        <div class="chat-step" data-step="2">
+                            <div class="chat-question">Supert! Hvor mye ønsker du å låne?</div>
+                            <div class="chat-input-container loan-amount-container">
+                                <div class="preset-amounts">
+                                    <button type="button" class="preset-amount-btn" data-amount="250000">
+                                        250 000 kr
+                                    </button>
+                                    <button type="button" class="preset-amount-btn" data-amount="500000">
+                                        500 000 kr
+                                    </button>
+                                    <button type="button" class="preset-amount-btn" data-amount="800000">
+                                        800 000 kr
+                                    </button>
+                                </div>
+                                <div class="dropdown-button-row">
+                                    <div class="select-wrapper">
+                                        <select class="loan-amount-select" name="AppliedAmount" required>
+                                            <option value="" disabled selected>Velg annet beløp</option>
+                                            <option value="10000">10 000 kr</option>
+                                            <option value="15000">15 000 kr</option>
+                                            <option value="20000">20 000 kr</option>
+                                            <option value="25000">25 000 kr</option>
+                                            <option value="30000">30 000 kr</option>
+                                            <option value="35000">35 000 kr</option>
+                                            <option value="40000">40 000 kr</option>
+                                            <option value="45000">45 000 kr</option>
+                                            <option value="50000">50 000 kr</option>
+                                            <option value="55000">55 000 kr</option>
+                                            <option value="60000">60 000 kr</option>
+                                            <option value="65000">65 000 kr</option>
+                                            <option value="70000">70 000 kr</option>
+                                            <option value="75000">75 000 kr</option>
+                                            <option value="80000">80 000 kr</option>
+                                            <option value="85000">85 000 kr</option>
+                                            <option value="90000">90 000 kr</option>
+                                            <option value="95000">95 000 kr</option>
+                                            <option value="100000">100 000 kr</option>
+                                            <option value="105000">105 000 kr</option>
+                                            <option value="110000">110 000 kr</option>
+                                            <option value="115000">115 000 kr</option>
+                                            <option value="120000">120 000 kr</option>
+                                            <option value="125000">125 000 kr</option>
+                                            <option value="130000">130 000 kr</option>
+                                            <option value="135000">135 000 kr</option>
+                                            <option value="140000">140 000 kr</option>
+                                            <option value="145000">145 000 kr</option>
+                                            <option value="150000">150 000 kr</option>
+                                            <option value="155000">155 000 kr</option>
+                                            <option value="160000">160 000 kr</option>
+                                            <option value="165000">165 000 kr</option>
+                                            <option value="170000">170 000 kr</option>
+                                            <option value="175000">175 000 kr</option>
+                                            <option value="180000">180 000 kr</option>
+                                            <option value="185000">185 000 kr</option>
+                                            <option value="190000">190 000 kr</option>
+                                            <option value="195000">195 000 kr</option>
+                                            <option value="200000">200 000 kr</option>
+                                            <option value="250000">250 000 kr</option>
+                                            <option value="300000">300 000 kr</option>
+                                            <option value="350000">350 000 kr</option>
+                                            <option value="400000">400 000 kr</option>
+                                            <option value="450000">450 000 kr</option>
+                                            <option value="500000">500 000 kr</option>
+                                            <option value="550000">550 000 kr</option>
+                                            <option value="600000">600 000 kr</option>
+                                            <option value="650000">650 000 kr</option>
+                                            <option value="700000">700 000 kr</option>
+                                            <option value="750000">750 000 kr</option>
+                                            <option value="800000">800 000 kr</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" class="chat-next-btn income-next-btn">Neste</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-step" data-step="3">
+                            <div class="chat-question">Hvor mange år ønsker du å betale lånet over?</div>
+                            <div class="chat-input-container loan-amount-container">
+                                <div class="preset-amounts">
+                                    <button type="button" class="preset-duration-btn" data-duration="5">5 år</button>
+                                    <button type="button" class="preset-duration-btn" data-duration="10">10 år</button>
+                                    <button type="button" class="preset-duration-btn" data-duration="15">15 år</button>
+                                    <button type="button" class="preset-duration-btn" data-duration="20">20 år</button>
+                                </div>
+                                <div class="duration-dropdown-button-row">
+                                    <div class="select-wrapper">
+                                        <select class="loan-amount-select" name="LoanDuration" required>
+                                            <option value="" disabled selected>Velg annet antall</option>
+                                            <option value="1">1 år</option>
+                                            <option value="2">2 år</option>
+                                            <option value="3">3 år</option>
+                                            <option value="4">4 år</option>
+                                            <option value="5">5 år</option>
+                                            <option value="6">6 år</option>
+                                            <option value="7">7 år</option>
+                                            <option value="8">8 år</option>
+                                            <option value="9">9 år</option>
+                                            <option value="10">10 år</option>
+                                            <option value="11">11 år</option>
+                                            <option value="12">12 år</option>
+                                            <option value="13">13 år</option>
+                                            <option value="14">14 år</option>
+                                            <option value="15">15 år</option>
+                                            <option value="16">16 år</option>
+                                            <option value="17">17 år</option>
+                                            <option value="18">18 år</option>
+                                            <option value="19">19 år</option>
+                                            <option value="20">20 år</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" class="chat-next-btn duration-next-btn">Neste</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-step" data-step="4">
+                            <div class="chat-question">
+                                Flott! Når tilbuden er klare sender vi deg en SMS. Hvilket nummer kan vi nå deg på?
+                            </div>
+                            <div class="chat-input-container">
+                                <input
+                                    type="tel"
+                                    class="chat-input"
+                                    name="PhoneNumber"
+                                    placeholder="Ditt telefonnummer"
+                                    required
+                                />
+                                <button type="button" class="chat-next-btn">Neste</button>
+                            </div>
+                        </div>
+
+                        <div class="chat-step" data-step="5">
+                            <div class="chat-question">Er du i jobb?</div>
+                            <div class="chat-input-container employment-container">
+                                <div class="employment-buttons">
+                                    <button type="button" class="employment-btn" data-employment="fast">Fast</button>
+                                    <button type="button" class="employment-btn" data-employment="midlertidig">
+                                        Midlertidig
+                                    </button>
+                                    <button type="button" class="employment-btn" data-employment="selvstendig">
+                                        Selvstendig
+                                    </button>
+                                    <button type="button" class="employment-btn" data-employment="nei">Nei</button>
+                                </div>
+                            </div>
+                            <div class="chat-input-container employment-type-container" style="display: none">
+                                <div class="employment-buttons">
+                                    <button type="button" class="employment-type-btn" data-type="Permanent">
+                                        Privat
+                                    </button>
+                                    <button type="button" class="employment-type-btn" data-type="PermanentPublic">
+                                        Offentlig
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="chat-input-container employer-container" style="display: none">
+                                <input
+                                    type="text"
+                                    class="chat-input"
+                                    name="EmployerName"
+                                    placeholder="Navn på arbeidsgiver"
+                                    required
+                                />
+                                <button type="button" class="chat-next-btn">Neste</button>
+                            </div>
+                            <div class="chat-input-container employment-duration-container" style="display: none">
+                                <div class="employment-buttons">
+                                    <button
+                                        type="button"
+                                        class="duration-btn employment-btn"
+                                        data-duration="less-than-5"
+                                    >
+                                        Mindre enn 5 år
+                                    </button>
+                                    <button type="button" class="duration-btn employment-btn" data-duration="5-to-10">
+                                        Mellom 5 og 10 år
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="duration-btn employment-btn"
+                                        data-duration="more-than-10"
+                                    >
+                                        10 år eller mer
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="chat-input-container employment-year-container" style="display: none">
+                                <div class="employment-buttons year-buttons">
+                                    <!-- Will be populated dynamically -->
+                                </div>
+                            </div>
+                            <div class="chat-input-container non-employment-container" style="display: none">
+                                <div class="employment-buttons">
+                                    <button type="button" class="non-employment-btn" data-type="Pensioner">
+                                        Pensjonist
+                                    </button>
+                                    <button type="button" class="non-employment-btn" data-type="Disabled">
+                                        Uføretrygdet
+                                    </button>
+                                    <button type="button" class="non-employment-btn" data-type="Rehabilitation">
+                                        Arbeidsavklaring/attføring
+                                    </button>
+                                </div>
+                            </div>
+                            <input type="hidden" name="EmploymentStatus" required />
+                            <input type="hidden" name="EmploymentStatusSince" required />
+                        </div>
+
+                        <div class="chat-step" data-step="6">
+                            <div class="chat-question">Hva er din brutto årsinntekt?</div>
+                            <div class="chat-input-container">
+                                <input
+                                    type="number"
+                                    class="chat-input"
+                                    name="GrossIncomeYearly"
+                                    placeholder="Oppgi din brutto årsinntekt i kroner"
+                                    min="0"
+                                    max="100000000"
+                                    step="1000"
+                                    required
+                                />
+                                <button type="button" class="chat-next-btn">Neste</button>
+                            </div>
+                        </div>
+
+                        <div class="chat-step" data-step="7">
+                            <div class="chat-question">Har du høyere utdannelse?</div>
+                            <div class="chat-input-container">
+                                <div class="employment-buttons">
+                                    <button type="button" class="education-btn" data-value="Higher education">
+                                        Ja
+                                    </button>
+                                    <button type="button" class="education-btn" data-value="High school">Nei</button>
+                                </div>
+                            </div>
+                            <input type="hidden" name="Education" required />
+                        </div>
+
+                        <!-- Statsborgerskap spørsmål -->
+                        <div class="chat-step" data-step="8">
+                            <div class="chat-question">Er du norsk statsborger?</div>
+                            <div class="chat-input-container citizenship-container">
+                                <button class="chat-btn citizenship-btn" data-value="NO">Ja</button>
+                                <button class="chat-btn citizenship-btn" data-value="">Nei</button>
+                            </div>
+                            <div class="chat-input-container country-search-container" style="display: none">
+                                <input type="text" class="chat-input country-search" placeholder="Søk etter land..." />
+                                <div class="country-list"></div>
+                            </div>
+                            <input type="hidden" name="Citizenship" required />
+                        </div>
+
+                        <!-- Når flyttet du til Norge spørsmål -->
+                        <div class="chat-step" data-step="8.5">
+                            <div class="chat-question">Hvor lenge har du bodd i Norge?</div>
+                            <div class="chat-input-container duration-container">
+                                <div class="employment-buttons">
+                                    <!-- Bruker samme styling som ansettelsesknapper -->
+                                    <button
+                                        type="button"
+                                        class="duration-btn norway-duration-btn"
+                                        data-duration="less-than-5"
+                                    >
+                                        Mindre enn 5 år
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="duration-btn norway-duration-btn"
+                                        data-duration="5-to-10"
+                                    >
+                                        Mellom 5 og 10 år
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="duration-btn norway-duration-btn"
+                                        data-duration="more-than-10"
+                                    >
+                                        10 år eller mer
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="chat-input-container year-container" style="display: none">
+                                <!-- Skjult som standard -->
+                                <div class="year-buttons">
+                                    <!-- Knappene vil bli generert dynamisk med JavaScript -->
+                                </div>
+                                <input type="hidden" name="LivedInMarketCountrySince" required />
+                            </div>
+                        </div>
+
+                        <!-- Fødselsnummer spørsmål -->
+                        <div class="chat-step" data-step="10">
+                            <div class="chat-question">Hva er ditt fødselsnummer?</div>
+                            <div class="chat-input-container">
+                                <input
+                                    type="text"
+                                    class="chat-input"
+                                    name="SocialSecurityNumber"
+                                    placeholder="11 siffer"
+                                    required
+                                />
+                                <!-- The submit button redirect us to the next step that's handled by the form in the axo-form.html file-->
+                                <button type="submit" class="chat-next-btn">Neste</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="cta-section">
-        <div class="container">
-            <h2 class="cta-title animate-in">Klar til å forbedre din økonomi?</h2>
-            <p class="cta-text animate-in">Bli med over 100 000 fornøyde kunder som har funnet sin vei til bedre økonomi.</p>
-            <a href="#form-section" class="cta-button animate-in">Start din søknad nå</a>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <div class="container footer-content">
-            <p class="footer-text">© 2024 Din Finansportal. Alle rettigheter forbeholdt.</p>
-        </div>
-    </footer>
-    <script src="js/script.js"></script>
-  
-</body>
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card" data-delay="0">
+                        <h3 class="feature-title">Rask og enkel søknad</h3>
+                        <p class="feature-text">Fyll ut skjemaet på under 2 minutter og få svar på sekunder.</p>
+                    </div>
+                    <div class="feature-card" data-delay="200">
+                        <h3 class="feature-title">Konkurransedyktige renter</h3>
+                        <p class="feature-text">Vi tilbyr markedsledende renter og fleksible løpetider.</p>
+                    </div>
+                    <div class="feature-card" data-delay="400">
+                        <h3 class="feature-title">100% digital prosess</h3>
+                        <p class="feature-text">Alt kan gjøres på nett, ingen papirarbeid eller besøk til banken.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="cta-title animate-in">Klar til å forbedre din økonomi?</h2>
+                <p class="cta-text animate-in">
+                    Bli med over 100 000 fornøyde kunder som har funnet sin vei til bedre økonomi.
+                </p>
+                <a href="#form-section" class="cta-button animate-in">Start din søknad nå</a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container footer-content">
+                <p class="footer-text">© 2024 Din Finansportal. Alle rettigheter forbeholdt.</p>
+            </div>
+        </footer>
+        <script src="js/script.js"></script>
+    </body>
 </html>

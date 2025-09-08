@@ -1,0 +1,13 @@
+{
+    "name": "finance-portal",
+    "version": "0.0.0",
+    "private": true,
+    "description": "Static frontend for a loan application chat interface.",
+    "scripts": {
+        "check": "prettier --check .",
+        "format": "prettier --write ."
+    },
+    "devDependencies": {
+        "prettier": "^3.3.3"
+    }
+}
