@@ -1,12 +1,24 @@
 :root {
-    --primary-color: #0066cc;
-    --secondary-color: #5856d6;
-    --success-color: #34c759;
-    --warning-color: #ff9500;
-    --error-color: #ff3b30;
-    --background-color: #f2f2f7;
-    --text-color: #000000;
-    --border-color: #c7c7cc;
+    /* Brand + neutrals */
+    --primary-color: #2563eb; /* modern blue */
+    --secondary-color: #1e40af; /* darker hover */
+    --success-color: #16a34a;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+
+    --background-color: #f8fafc; /* slate-50 */
+    --surface-color: #ffffff;
+    --text-color: #0f172a; /* slate-900 */
+    --muted-text-color: #475569; /* slate-600 */
+    --border-color: #e2e8f0; /* slate-200 */
+
+    /* Radii + shadows */
+    --radius-s: 8px;
+    --radius-m: 12px;
+    --radius-l: 16px;
+    --shadow-s: 0 1px 2px rgba(2, 6, 23, 0.06), 0 1px 3px rgba(2, 6, 23, 0.08);
+    --shadow-m: 0 8px 24px rgba(2, 6, 23, 0.08);
+    --ring: 0 0 0 4px rgba(37, 99, 235, 0.12);
 }
 
 @keyframes fadeIn {
@@ -155,7 +167,7 @@
 }
 
 body {
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
@@ -170,9 +182,11 @@ body {
 }
 
 header {
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    padding: 1rem 0;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    padding: 0.75rem 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -186,10 +200,11 @@ header {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--text-color);
     text-decoration: none;
+    letter-spacing: 0.2px;
 }
 
 .hero {
@@ -276,7 +291,7 @@ header {
 
 .features {
     padding: 4rem 0;
-    background: white;
+    background: var(--surface-color);
     position: relative;
     overflow: hidden;
 }
@@ -302,14 +317,16 @@ header {
 }
 
 .feature-card {
-    padding: 2rem;
-    background: var(--background-color);
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    padding: 1.5rem;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-m);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
     overflow: hidden;
     opacity: 0;
     transform: translateY(20px);
+    box-shadow: var(--shadow-s);
 }
 
 .feature-card.animate-in {
@@ -317,25 +334,12 @@ header {
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 102, 204, 0.15);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-m);
 }
 
-.feature-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), #3498db);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.feature-card:hover::before {
-    opacity: 1;
-}
+/* Remove loud top bar, keep clean card */
+.feature-card::before { content: none; }
 
 .feature-title {
     font-size: 1.25rem;
@@ -345,7 +349,7 @@ header {
 }
 
 .feature-text {
-    color: #4b5563;
+    color: var(--muted-text-color);
 }
 
 .form-section {
@@ -363,77 +367,25 @@ header {
 .form-container {
     max-width: 700px;
     margin: 0 auto;
-    background: white;
-    padding: 3rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background: var(--surface-color);
+    padding: 2rem;
+    border-radius: var(--radius-l);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-m);
     position: relative;
     z-index: 1;
 }
 
-/* Glødende, animert border - ytre element */
-.form-container::before {
-    content: "";
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    bottom: -4px;
-    left: -4px;
-    background: linear-gradient(
-        45deg,
-        #0066cc,
-        #4f94ef,
-        #1e88e5,
-        #64b5f6,
-        #1976d2,
-        #0d47a1,
-        #2196f3,
-        #0288d1,
-        #0066cc,
-        #4f94ef,
-        #1e88e5
-    );
-    border-radius: 16px;
-    z-index: -1;
-    background-size: 400% 400%;
-    animation:
-        gradientFlow 12s linear infinite,
-        glowPulse 4s ease-in-out infinite;
-    box-shadow: 0 0 15px rgba(0, 102, 204, 0.6);
-    opacity: 0.9;
-    transition: all 0.3s ease;
-}
-
-/* Hvit "hullmaske" som viser border */
+/* Tone down animated glow for a calmer, modern card */
+.form-container::before,
 .form-container::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: white;
-    border-radius: 12px;
-    z-index: -1;
-}
-
-/* Hover-effekt på border */
-.form-container:hover::before {
-    filter: blur(3px);
-    opacity: 1;
-    top: -6px;
-    right: -6px;
-    bottom: -6px;
-    left: -6px;
-    animation:
-        gradientFlow 8s linear infinite,
-        glowPulse 2s ease-in-out infinite;
+    content: none;
 }
 
 .form-title {
     font-size: 1.75rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
     color: var(--text-color);
     text-align: center;
 }
@@ -480,33 +432,31 @@ header {
 
 .chat-input {
     flex: 1;
-    padding: 0.875rem;
-    border: 2px solid var(--border-color);
-    border-radius: 0.5rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-s);
     font-size: 1rem;
-    background-color: var(--background-color);
-    transition: all 0.2s ease;
+    background-color: var(--surface-color);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
     min-width: 180px;
 }
 
 .chat-input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+    box-shadow: var(--ring);
 }
 
 .chat-question {
-    background: var(--primary-color);
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
     color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 1rem 1rem 1rem 0;
+    padding: 0.875rem 1.25rem;
+    border-radius: 14px 14px 14px 4px;
     margin-bottom: 0.75rem;
     display: inline-block;
     max-width: 85%;
     transform-origin: left center;
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     position: relative !important;
     z-index: 100 !important;
 }
@@ -545,9 +495,9 @@ header {
 }
 
 .chat-response {
-    background: var(--background-color);
+    background: #f1f5f9; /* slate-100 */
     padding: 0.75rem 1rem;
-    border-radius: 1rem 1rem 0 1rem;
+    border-radius: 14px 14px 4px 14px;
     display: inline-block;
     animation: fadeIn 0.3s ease-out;
     flex: 1;
@@ -578,28 +528,28 @@ header {
 .preset-amount-btn,
 .preset-duration-btn {
     flex: 1;
-    background: var(--background-color);
-    border: 2px solid var(--border-color);
-    border-radius: 0.5rem;
-    padding: 0.6rem 0.5rem;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-s);
+    padding: 0.6rem 0.75rem;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-color);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 .preset-amount-btn:hover,
 .preset-duration-btn:hover {
-    background-color: white;
+    background-color: var(--surface-color);
     border-color: var(--primary-color);
     transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-s);
 }
 
 .select-wrapper {
     position: relative;
-    max-width: 180px;
+    max-width: 220px;
 }
 
 .select-wrapper::after {
@@ -619,32 +569,33 @@ header {
 
 .loan-amount-select {
     width: 100%;
-    padding: 0.875rem;
-    border: 2px solid var(--border-color);
-    border-radius: 0.5rem;
+    padding: 0.875rem 2.25rem 0.875rem 0.875rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-s);
     font-size: 1rem;
     appearance: none;
-    background-color: var(--background-color);
+    background-color: var(--surface-color);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .loan-amount-select:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+    box-shadow: var(--ring);
 }
 
 .chat-next-btn {
-    background-color: var(--primary-color);
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
     color: white;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.25rem;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: var(--radius-s);
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
 }
 
 .chat-next-btn::after {
@@ -656,19 +607,20 @@ header {
 }
 
 .chat-next-btn:hover {
-    background-color: var(--secondary-color);
     transform: translateY(-1px);
 }
 
 .chat-next-btn:disabled {
-    background-color: var(--border-color);
+    background: #e2e8f0;
+    color: #94a3b8;
     cursor: not-allowed;
+    box-shadow: none;
     transform: none;
 }
 
 .cta-section {
     padding: 4rem 0;
-    background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%);
+    background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
     text-align: center;
 }
 
@@ -680,20 +632,20 @@ header {
 }
 
 .cta-text {
-    font-size: 1.25rem;
-    color: #4b5563;
+    font-size: 1.125rem;
+    color: var(--muted-text-color);
     margin-bottom: 2rem;
 }
 
 .cta-button {
     display: inline-block;
-    background-color: var(--primary-color);
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
     color: white;
-    padding: 1rem 2rem;
-    border-radius: 4px;
+    padding: 0.875rem 1.25rem;
+    border-radius: var(--radius-s);
     text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.2s;
+    font-weight: 600;
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
 }
 
 .cta-button:hover {
@@ -701,7 +653,7 @@ header {
 }
 
 footer {
-    background-color: white;
+    background-color: var(--surface-color);
     padding: 2rem 0;
     margin-top: 4rem;
     border-top: 1px solid var(--border-color);
@@ -714,7 +666,7 @@ footer {
 }
 
 .footer-text {
-    color: #666;
+    color: var(--muted-text-color);
     font-size: 0.875rem;
 }
 
@@ -723,7 +675,7 @@ footer {
         font-size: 2rem;
     }
     .form-container {
-        padding: 1.5rem;
+        padding: 1.25rem;
         margin: 0 1rem;
     }
 
@@ -757,15 +709,15 @@ footer {
 .employment-type-btn,
 .non-employment-btn {
     flex: 1;
-    background: var(--background-color);
-    border: 2px solid var(--border-color);
-    border-radius: 0.5rem;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-s);
     padding: 0.875rem;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-color);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
     text-align: center;
     white-space: nowrap;
 }
@@ -773,10 +725,10 @@ footer {
 .employment-btn:hover,
 .employment-type-btn:hover,
 .non-employment-btn:hover {
-    background-color: white;
+    background-color: var(--surface-color);
     border-color: var(--primary-color);
     transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-s);
 }
 
 .employment-btn::after,
@@ -854,14 +806,14 @@ footer {
 .country-dropdown {
     position: absolute;
     width: 100%;
-    max-height: 200px;
+    max-height: 240px;
     overflow-y: auto;
     border: 1px solid var(--border-color);
-    border-radius: 0.5rem;
-    background-color: white;
+    border-radius: var(--radius-s);
+    background-color: var(--surface-color);
     z-index: 100;
-    margin-top: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 6px;
+    box-shadow: var(--shadow-m);
 }
 
 .country-item {
@@ -871,31 +823,31 @@ footer {
 }
 
 .country-item:hover {
-    background-color: var(--background-color);
+    background-color: #f1f5f9;
 }
 
 .education-btn,
 .citizenship-btn {
     flex: 1;
-    background: var(--background-color);
-    border: 2px solid var(--border-color);
-    border-radius: 0.5rem;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-s);
     padding: 0.875rem;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-color);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
     text-align: center;
     margin: 0.25rem;
 }
 
 .education-btn:hover,
 .citizenship-btn:hover {
-    background-color: white;
+    background-color: var(--surface-color);
     border-color: var(--primary-color);
     transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-s);
 }
 
 .country-list {
@@ -903,13 +855,13 @@ footer {
     top: 100%;
     left: 0;
     right: 0;
-    max-height: 200px;
+    max-height: 240px;
     overflow-y: auto;
-    background: white;
+    background: var(--surface-color);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    margin-top: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-s);
+    margin-top: 6px;
+    box-shadow: var(--shadow-m);
     z-index: 1000;
     display: none;
 }
@@ -927,7 +879,7 @@ footer {
 }
 
 .country-btn:hover {
-    background-color: var(--background-color);
+    background-color: #f1f5f9;
 }
 
 /* Specific layout for Loan Amount step (Step 2) */
