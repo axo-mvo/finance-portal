@@ -63,60 +63,50 @@
             });
         </script>
         <style>
-            :root {
-                --primary-color: #0066cc;
-                --secondary-color: #004c99;
-                --background-color: #f5f7fa;
-                --text-color: #1a1a1a;
-                --border-color: #e5e7eb;
-                --error-color: #dc2626;
-                --success-color: #059669;
-            }
-
-            /* Custom styling for Axo form */
+            /* Custom styling for Axo form - using modern design system */
             #axo-root {
-                --button-color: #0066cc;
-                --button-color-background-primary: #0066cc;
-                --button-color-border-primary: #0066cc;
+                --button-color: #2563eb;
+                --button-color-background-primary: #2563eb;
+                --button-color-border-primary: #2563eb;
 
-                --primary-100: #eef6ff;
-                --primary-rgb-100: 238, 246, 255;
-                --primary-200: #bad9fd;
-                --primary-rgb-200: 186, 217, 253;
-                --primary-300: #98c7fc;
-                --primary-rgb-300: 152, 199, 252;
-                --primary-500: #0066cc;
-                --primary-rgb-500: 0, 102, 204;
-                --primary-700: #004c99;
-                --primary-rgb-700: 0, 76, 153;
-                --primary-900: #003366;
-                --primary-rgb-900: 0, 51, 102;
+                --primary-100: #eff6ff;
+                --primary-rgb-100: 239, 246, 255;
+                --primary-200: #dbeafe;
+                --primary-rgb-200: 219, 234, 254;
+                --primary-300: #93c5fd;
+                --primary-rgb-300: 147, 197, 253;
+                --primary-500: #2563eb;
+                --primary-rgb-500: 37, 99, 235;
+                --primary-700: #1e40af;
+                --primary-rgb-700: 30, 64, 175;
+                --primary-900: #1e3a8a;
+                --primary-rgb-900: 30, 58, 138;
 
-                --secondary-100: #f5f7fa;
-                --secondary-rgb-100: 245, 247, 250;
-                --secondary-200: #e5e7eb;
-                --secondary-rgb-200: 229, 231, 235;
-                --secondary-300: #d1d5db;
-                --secondary-rgb-300: 209, 213, 219;
-                --secondary-500: #9ca3af;
-                --secondary-rgb-500: 156, 163, 175;
-                --secondary-700: #4b5563;
-                --secondary-rgb-700: 75, 85, 99;
-                --secondary-900: #1a1a1a;
-                --secondary-rgb-900: 26, 26, 26;
+                --secondary-100: #f8fafc;
+                --secondary-rgb-100: 248, 250, 252;
+                --secondary-200: #e2e8f0;
+                --secondary-rgb-200: 226, 232, 240;
+                --secondary-300: #cbd5e1;
+                --secondary-rgb-300: 203, 213, 225;
+                --secondary-500: #64748b;
+                --secondary-rgb-500: 100, 116, 139;
+                --secondary-700: #475569;
+                --secondary-rgb-700: 71, 85, 105;
+                --secondary-900: #0f172a;
+                --secondary-rgb-900: 15, 23, 42;
 
-                --success-100: #e5f8f4;
-                --success-rgb-100: 229, 248, 244;
-                --success-200: #80dbca;
-                --success-rgb-200: 128, 219, 202;
-                --success-300: #00caa6;
-                --success-rgb-300: 0, 202, 166;
-                --success-500: #059669;
-                --success-rgb-500: 5, 150, 105;
-                --success-700: #047857;
-                --success-rgb-700: 4, 120, 87;
-                --success-900: #065f46;
-                --success-rgb-900: 6, 95, 70;
+                --success-100: #dcfce7;
+                --success-rgb-100: 220, 252, 231;
+                --success-200: #bbf7d0;
+                --success-rgb-200: 187, 247, 208;
+                --success-300: #86efac;
+                --success-rgb-300: 134, 239, 172;
+                --success-500: #16a34a;
+                --success-rgb-500: 22, 163, 74;
+                --success-700: #15803d;
+                --success-rgb-700: 21, 128, 61;
+                --success-900: #14532d;
+                --success-rgb-900: 20, 83, 45;
 
                 --danger-100: #fee2e2;
                 --danger-rgb-100: 254, 226, 226;
@@ -124,42 +114,42 @@
                 --danger-rgb-200: 254, 202, 202;
                 --danger-300: #fca5a5;
                 --danger-rgb-300: 252, 165, 165;
-                --danger-500: #dc2626;
-                --danger-rgb-500: 220, 38, 38;
-                --danger-700: #b91c1c;
-                --danger-rgb-700: 185, 28, 28;
+                --danger-500: #ef4444;
+                --danger-rgb-500: 239, 68, 68;
+                --danger-700: #dc2626;
+                --danger-rgb-700: 220, 38, 38;
                 --danger-900: #991b1b;
                 --danger-rgb-900: 153, 27, 27;
 
-                --light-100: #fcfcfc;
-                --light-rgb-100: 252, 252, 252;
-                --light-200: #f8f8f8;
-                --light-rgb-200: 248, 248, 248;
-                --light-300: #f5f7fa;
-                --light-rgb-300: 245, 247, 250;
-                --light-400: #e5e7eb;
-                --light-rgb-400: 229, 231, 235;
-                --light-500: #d1d5db;
-                --light-rgb-500: 209, 213, 219;
-                --light-600: #9ca3af;
-                --light-rgb-600: 156, 163, 175;
-                --light-700: #6b7280;
-                --light-rgb-700: 107, 114, 128;
-                --light-900: #4b5563;
-                --light-rgb-900: 75, 85, 99;
+                --light-100: #ffffff;
+                --light-rgb-100: 255, 255, 255;
+                --light-200: #f8fafc;
+                --light-rgb-200: 248, 250, 252;
+                --light-300: #f1f5f9;
+                --light-rgb-300: 241, 245, 249;
+                --light-400: #e2e8f0;
+                --light-rgb-400: 226, 232, 240;
+                --light-500: #cbd5e1;
+                --light-rgb-500: 203, 213, 225;
+                --light-600: #94a3b8;
+                --light-rgb-600: 148, 163, 184;
+                --light-700: #64748b;
+                --light-rgb-700: 100, 116, 139;
+                --light-900: #475569;
+                --light-rgb-900: 71, 85, 105;
 
-                --dark-100: #6b7280;
-                --dark-rgb-100: 107, 114, 128;
-                --dark-200: #4b5563;
-                --dark-rgb-200: 75, 85, 99;
-                --dark-300: #374151;
-                --dark-rgb-300: 55, 65, 81;
-                --dark-500: #1f2937;
-                --dark-rgb-500: 31, 41, 55;
-                --dark-700: #111827;
-                --dark-rgb-700: 17, 24, 39;
-                --dark-900: #1a1a1a;
-                --dark-rgb-900: 26, 26, 26;
+                --dark-100: #64748b;
+                --dark-rgb-100: 100, 116, 139;
+                --dark-200: #475569;
+                --dark-rgb-200: 71, 85, 105;
+                --dark-300: #334155;
+                --dark-rgb-300: 51, 65, 85;
+                --dark-500: #1e293b;
+                --dark-rgb-500: 30, 41, 59;
+                --dark-700: #0f172a;
+                --dark-rgb-700: 15, 23, 42;
+                --dark-900: #0f172a;
+                --dark-rgb-900: 15, 23, 42;
 
                 /* Aliases */
                 --primary-color: var(--primary-500);
@@ -176,14 +166,14 @@
                 --border-radius: 8px;
 
                 /* INPUT FIELDS ELEVATION */
-                --box-shadow-base: 0 0 0 2px;
-                --box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
-                --box-shadow-danger: 0 0 0 2px rgba(220, 38, 38, 0.1);
-                --box-shadow-success: 0 0 0 2px rgba(5, 150, 105, 0.1);
+                --box-shadow-base: 0 0 0 4px;
+                --box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+                --box-shadow-danger: 0 0 0 4px rgba(239, 68, 68, 0.12);
+                --box-shadow-success: 0 0 0 4px rgba(22, 163, 74, 0.12);
 
                 /* ELEVATION */
-                --bottom-container-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-                --bottom-container-spread: 0 0 8px rgba(0, 0, 0, 0.05);
+                --bottom-container-shadow: 0 1px 2px rgba(2, 6, 23, 0.06), 0 1px 3px rgba(2, 6, 23, 0.08);
+                --bottom-container-spread: 0 8px 24px rgba(2, 6, 23, 0.08);
 
                 /* FONT SIZES */
                 --font-small-1: 12px;
@@ -239,9 +229,11 @@
             }
 
             header {
-                background-color: white;
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-                padding: 1rem 0;
+                background: rgba(255, 255, 255, 0.7);
+                backdrop-filter: saturate(180%) blur(12px);
+                -webkit-backdrop-filter: saturate(180%) blur(12px);
+                border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+                padding: 0.75rem 0;
                 position: fixed;
                 width: 100%;
                 top: 0;
@@ -255,10 +247,11 @@
             }
 
             .logo-form-page {
-                font-size: 1.5rem;
+                font-size: 1.25rem;
                 font-weight: 700;
-                color: var(--primary-color);
+                color: var(--dark-900);
                 text-decoration: none;
+                letter-spacing: 0.2px;
             }
 
             .hero {
@@ -291,10 +284,10 @@
                 gap: 0.5rem;
                 background: var(--primary-100);
                 color: var(--text-color);
-                border: 1px solid rgba(0, 102, 204, 0.25);
+                border: 1px solid rgba(37, 99, 235, 0.25);
                 padding: 0.375rem 0.75rem; /* compact pill */
                 border-radius: 9999px;
-                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+                box-shadow: 0 1px 2px rgba(2, 6, 23, 0.06), 0 1px 3px rgba(2, 6, 23, 0.08);
                 letter-spacing: 0.2px;
             }
 
@@ -314,8 +307,9 @@
             .form-container {
                 background: white;
                 padding: 1.25rem 1.25rem; /* slightly tighter */
-                border-radius: 12px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+                border-radius: 16px;
+                border: 1px solid var(--light-400);
+                box-shadow: 0 8px 24px rgba(2, 6, 23, 0.08);
                 animation: fadeIn 0.6s ease-out 0.4s forwards;
                 opacity: 0;
                 width: 100%;
@@ -353,21 +347,20 @@
             }
 
             #axo-root button {
-                background-color: var(--primary-500) !important;
+                background: linear-gradient(180deg, var(--primary-500), var(--primary-700)) !important;
                 color: white !important;
-                font-weight: 500 !important;
-                padding: 0.875rem 1.5rem !important;
-                border-radius: 0.5rem !important;
-                transition: all 0.2s ease !important;
+                font-weight: 600 !important;
+                padding: 0.875rem 1.25rem !important;
+                border-radius: 8px !important;
+                transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease !important;
                 border: none !important;
                 font-family: "Inter", sans-serif !important;
                 cursor: pointer !important;
+                box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25) !important;
             }
 
             #axo-root button:hover {
-                background-color: var(--primary-700) !important;
                 transform: translateY(-1px) !important;
-                box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15) !important;
             }
 
             #axo-root button:active {
@@ -377,12 +370,12 @@
             #axo-root input,
             #axo-root select,
             #axo-root textarea {
-                padding: 0.875rem !important;
-                border: 2px solid var(--border-color) !important;
-                border-radius: 0.5rem !important;
+                padding: 0.875rem 1rem !important;
+                border: 1px solid var(--light-400) !important;
+                border-radius: 8px !important;
                 font-size: 16px !important;
-                transition: all 0.2s ease !important;
-                background-color: var(--background-color) !important;
+                transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
+                background-color: white !important;
                 font-family: "Inter", sans-serif !important;
             }
 
@@ -391,8 +384,7 @@
             #axo-root textarea:focus {
                 outline: none !important;
                 border-color: var(--primary-500) !important;
-                box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1) !important;
-                transform: translateY(-1px) !important;
+                box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12) !important;
             }
 
             #axo-root label {
@@ -439,9 +431,10 @@
             #axo-root [class*="axo-container"] {
                 background-color: white !important;
                 border-radius: 12px !important;
+                border: 1px solid var(--light-400) !important;
                 padding: 1.5rem !important;
                 margin-bottom: 2rem !important;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+                box-shadow: 0 1px 2px rgba(2, 6, 23, 0.06), 0 1px 3px rgba(2, 6, 23, 0.08) !important;
             }
 
             /* Form groups */
