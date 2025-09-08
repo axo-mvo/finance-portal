@@ -21,10 +21,7 @@
 
         <section class="hero">
             <div class="container hero-content">
-                <h1 class="hero-title">Fullfør din søknad</h1>
-                <p class="hero-subtitle">
-                    Vi er nesten ferdige. Fyll ut de resterende detaljene for å fullføre din søknad.
-                </p>
+                <h1 class="hero-title status-badge">Fullfør din søknad</h1>
             </div>
         </section>
 
@@ -266,10 +263,10 @@
 
             .hero {
                 position: relative;
-                padding: 5rem 0 1.25rem; /* reduce vertical padding to bring form up */
+                padding: 3.25rem 0 0.5rem; /* even more compact */
                 background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
                 text-align: center;
-                margin-bottom: 0.75rem; /* reduce gap below hero */
+                margin-bottom: 0.5rem; /* tighter gap below hero */
                 overflow: hidden;
             }
 
@@ -281,11 +278,24 @@
             }
 
             .hero-title {
-                font-size: 2rem; /* slightly smaller for compact header */
-                font-weight: 700;
-                margin-bottom: 0.5rem;
+                font-size: 1rem; /* compact label size */
+                font-weight: 600;
+                margin-bottom: 0;
                 color: var(--text-color);
                 animation: slideIn 0.8s ease-out forwards;
+            }
+            .status-badge {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                background: var(--primary-100);
+                color: var(--text-color);
+                border: 1px solid rgba(0, 102, 204, 0.25);
+                padding: 0.375rem 0.75rem; /* compact pill */
+                border-radius: 9999px;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+                letter-spacing: 0.2px;
             }
 
             .hero-subtitle {
@@ -297,13 +307,13 @@
             }
 
             main {
-                padding: 0.75rem 0; /* reduce vertical padding around main */
+                padding: 0.25rem 0; /* minimal vertical padding */
                 min-height: auto; /* avoid forcing extra whitespace */
             }
 
             .form-container {
                 background: white;
-                padding: 1.5rem 1.75rem; /* tighter padding to let content sit higher */
+                padding: 1.25rem 1.25rem; /* slightly tighter */
                 border-radius: 12px;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
                 animation: fadeIn 0.6s ease-out 0.4s forwards;
