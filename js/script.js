@@ -62,10 +62,12 @@ if (form) {
             const employmentStatus = currentStepElement.querySelector('input[name="EmploymentStatus"]').value;
             const employerName = currentStepElement.querySelector('input[name="EmployerName"]')?.value;
 
-            if (!employmentDateInput.value) {
-                console.log("Forsøk på å gå til neste steg uten ansettelsesdato");
+            // Ikke krev dato dersom feltet ikke er påkrevd (f.eks. for ikke-ansatte)
+            const requiresEmploymentDate = employmentDateInput?.required === true;
+            if (requiresEmploymentDate && !employmentDateInput.value) {
+                console.log("Forsøk på å gå til neste steg uten ansettelsesdato (påkrevd)");
                 isAnimating = false;
-                return; // Ikke gå videre hvis ansettelsesdato mangler
+                return; // Ikke gå videre hvis ansettelsesdato mangler når den er påkrevd
             }
 
             // Viktig: Fjern employment-question klassen fra spørsmålet
@@ -76,9 +78,9 @@ if (form) {
             });
 
             console.log(
-                "Ansettelsesdato finnes, går til steg 6:",
+                "Validering for steg 5 → 6 ok:",
                 "ansettelsesdato:",
-                employmentDateInput.value,
+                employmentDateInput?.value || "(ikke påkrevd)",
                 "arbeidsgivernavn:",
                 employerName,
                 "ansettelsestype:",
@@ -586,6 +588,9 @@ if (form) {
         submitButton.textContent = "Vent litt...";
 
         try {
+            const employmentSinceIso = formProps.EmploymentStatusSince
+                ? new Date(formProps.EmploymentStatusSince).toISOString()
+                : undefined;
             console.log("Forbereder API-kall med følgende data:", {
                 application: {
                     AppliedAmount: parseInt(formProps.AppliedAmount),
@@ -594,7 +599,7 @@ if (form) {
                     MarketCountry: "NO",
                     EmploymentStatus: formProps.EmploymentStatus,
                     Employer: formProps.EmployerName || "",
-                    EmploymentStatusSince: new Date(formProps.EmploymentStatusSince).toISOString(),
+                    EmploymentStatusSince: employmentSinceIso,
                     Education: formProps.Education || "High school",
                     Citizenship: formProps.Citizenship || "NO",
                     LivedInMarketCountrySince:
@@ -622,7 +627,7 @@ if (form) {
                         MarketCountry: "NO",
                         EmploymentStatus: formProps.EmploymentStatus,
                         Employer: formProps.EmployerName || "",
-                        EmploymentStatusSince: new Date(formProps.EmploymentStatusSince).toISOString(),
+                        EmploymentStatusSince: employmentSinceIso,
                         Education: formProps.Education || "High school",
                         Citizenship: formProps.Citizenship || "NO",
                         LivedInMarketCountrySince:
@@ -1907,8 +1912,8 @@ if (form) {
                     responseWrapper.style.display = "none";
                     currentStepElement.style.minHeight = "0";
 
-                    // Kontroller at vi faktisk har verdi for ansettelsestype og ansettelsesdato
-                    if (employmentInput.value && employmentDateInput.value) {
+                    // Kontroller at vi faktisk har verdi for ansettelsestype. Dato er ikke påkrevd for ikke-ansatte
+                    if (employmentInput.value) {
                         console.log("Går til neste steg (brutto årsinntekt) fra non-employment");
 
                         // Forbered neste steg
@@ -1922,9 +1927,7 @@ if (form) {
 
                         showStep(currentStep + 1);
                     } else {
-                        console.error(
-                            "Kritisk feil: Mangler fortsatt nødvendig data for å gå videre fra non-employment"
-                        );
+                        console.error("Kritisk feil: Mangler ansettelsestype for non-employment");
                     }
                 }, 300);
             }, 700);
