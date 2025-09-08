@@ -266,10 +266,10 @@
 
             .hero {
                 position: relative;
-                padding: 8rem 0 4rem;
+                padding: 5rem 0 1.25rem; /* reduce vertical padding to bring form up */
                 background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
                 text-align: center;
-                margin-bottom: 2rem;
+                margin-bottom: 0.75rem; /* reduce gap below hero */
                 overflow: hidden;
             }
 
@@ -281,29 +281,29 @@
             }
 
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2rem; /* slightly smaller for compact header */
                 font-weight: 700;
-                margin-bottom: 1rem;
+                margin-bottom: 0.5rem;
                 color: var(--text-color);
                 animation: slideIn 0.8s ease-out forwards;
             }
 
             .hero-subtitle {
-                font-size: 1.25rem;
+                font-size: 1.0625rem; /* ~17px */
                 color: #4b5563;
-                margin-bottom: 2rem;
+                margin-bottom: 1rem;
                 animation: fadeIn 0.8s ease-out 0.2s forwards;
                 opacity: 0;
             }
 
             main {
-                padding: 2rem 0;
-                min-height: calc(100vh - 300px);
+                padding: 0.75rem 0; /* reduce vertical padding around main */
+                min-height: auto; /* avoid forcing extra whitespace */
             }
 
             .form-container {
                 background: white;
-                padding: 3rem;
+                padding: 1.5rem 1.75rem; /* tighter padding to let content sit higher */
                 border-radius: 12px;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
                 animation: fadeIn 0.6s ease-out 0.4s forwards;
@@ -330,6 +330,8 @@
             #axo-root {
                 font-family: "Inter", sans-serif !important;
                 max-width: 100% !important;
+                margin-top: 0 !important; /* prevent injected top spacing */
+                padding-top: 0 !important;
             }
 
             #axo-root h1,
