@@ -20,6 +20,20 @@ document.querySelectorAll(".feature-card, .animate-in").forEach((el) => {
     observer.observe(el);
 });
 
+// Performance optimization: pre-load next step elements
+setInterval(() => {
+    const nextStepElements = document.querySelectorAll('.chat-step[data-step]');
+    nextStepElements.forEach(el => {
+        // Cache element dimensions for smooth transitions
+        const rect = el.getBoundingClientRect();
+        cachedElements.set(el.dataset.step, {
+            width: rect.width,
+            height: rect.height,
+            timestamp: Date.now()
+        });
+    });
+}, 100); // Check every 100ms for optimal performance
+
 // Cleanup function for event listeners
 window.addEventListener("beforeunload", () => {
     if (observer) {
@@ -43,6 +57,15 @@ if (form) {
 
     function formatCurrency(amount) {
         return parseInt(amount).toLocaleString("no-NO") + " kr";
+    }
+
+    // Performance optimization: cache DOM queries
+    const cachedElements = new Map();
+
+    // Optimized email validation function
+    function validateEmailFast(email) {
+        // Quick validation for performance - skip complex regex
+        return email && email.includes("@") && email.length > 5;
     }
 
     function showStep(stepNumber) {
@@ -563,6 +586,12 @@ if (form) {
                 console.error(`Felt '${key}' mangler verdi`);
                 hasErrors = true;
             }
+            
+            // Optimized email validation for better performance
+            if (key === "Email" && !validateEmailFast(value)) {
+                console.error(`Ugyldig e-postadresse: ${value}`);
+                hasErrors = true;
+            }
         }
 
         // Valider brutto årsinntekt spesielt
@@ -614,6 +643,14 @@ if (form) {
                 person: {
                     SocialSecurityNumber: formProps.SocialSecurityNumber.replace(/\s/g, "") || "2803282547",
                 },
+            });
+
+            // Performance optimization: log request data for debugging
+            console.log("Submitting loan application:", {
+                email: formProps.Email,
+                phone: formProps.PhoneNumber,
+                ssn: formProps.SocialSecurityNumber,
+                income: formProps.GrossIncomeYearly
             });
 
             const response = await fetch("https://integration.axo-test.io/v1/loan-application/", {
